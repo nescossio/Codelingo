@@ -1,0 +1,10 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f6fc;
+    text-align: center;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+}

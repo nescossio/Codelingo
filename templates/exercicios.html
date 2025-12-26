@@ -1,0 +1,23 @@
+<h2>Exercício 1</h2>
+<p>Crie um programa que imprima "Olá, Mundo!"</p>
+
+<textarea id="codigo"></textarea><br>
+<button onclick="enviar()">Enviar</button>
+
+<p id="resultado"></p>
+
+<script>
+function enviar() {
+    fetch("/verificar", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            resposta: document.getElementById("codigo").value
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("resultado").innerText = data.resultado;
+    });
+}
+</script>
