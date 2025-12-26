@@ -2,9 +2,21 @@ from flask import Flask, render_template, request, jsonify
 import sqlite3
 
 app = Flask(__name__)
+def inicializar_db():
+    conn = conectar_db()
+    cursor = conn.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS duvidas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            texto TEXT
+        )
+    """)
+    conn.commit()
+    conn.close()
+inicializar_db()
 
 def conectar_db():
-    return sqlite3.connect("database.db")
+    return sqlite3.connect("database.db", check_same_thread=False)
 
 @app.route("/")
 def index():
