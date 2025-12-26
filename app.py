@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
+import os
 
 app = Flask(__name__)
+
+def conectar_db():
+    return sqlite3.connect("database.db", check_same_thread=False)
+
 def inicializar_db():
     conn = conectar_db()
     cursor = conn.cursor()
@@ -13,10 +18,9 @@ def inicializar_db():
     """)
     conn.commit()
     conn.close()
-inicializar_db()
 
-def conectar_db():
-    return sqlite3.connect("database.db", check_same_thread=False)
+# CHAMADA APÓS DEFINIR AS FUNÇÕES
+inicializar_db()
 
 @app.route("/")
 def index():
