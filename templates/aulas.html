@@ -7,7 +7,8 @@
 <body>
 
 <header>
-    <h1>Aulas de Python</h1>
+    <h1>Curso Completo de Programação em Python</h1>
+    <p>Apostila introdutória com exemplos práticos e explicações detalhadas</p>
 </header>
 
 <nav>
@@ -18,36 +19,226 @@
 </nav>
 
 <div class="container">
-    <h2>Módulo 1 – Introdução ao Python</h2>
-    <p>
-        Python é uma linguagem de programação simples, poderosa e amplamente
-        utilizada em diversas áreas da tecnologia.
-    </p>
 
-    <h2>Módulo 2 – Variáveis</h2>
-    <p>
-        Variáveis são utilizadas para armazenar valores que podem ser usados
-        durante a execução do programa.
-    </p>
+<h2>MÓDULO 1 – O QUE É PROGRAMAR</h2>
 
-    <h2>Módulo 3 – Condicionais</h2>
-    <p>
-        Estruturas condicionais permitem que o programa tome decisões.
-    </p>
+<p>
+Programar é o ato de escrever instruções claras e organizadas para que um
+computador execute determinadas tarefas. Essas instruções seguem uma lógica
+sequencial e são interpretadas por uma linguagem de programação.
+</p>
 
-    <h2>Módulo 4 – Laços de Repetição</h2>
-    <p>
-        Utilizados para repetir blocos de código.
-    </p>
+<p>
+Em Python, a instrução mais simples possível é:
+</p>
 
-    <h2>Módulo 5 – Funções</h2>
-    <p>
-        Funções organizam o código e facilitam a reutilização.
-    </p>
+<pre>
+print("Olá, Mundo!")
+</pre>
+
+<p>
+Esse comando exibe um texto na tela. Ele é usado tradicionalmente como o
+primeiro contato com qualquer linguagem de programação.
+</p>
+
+<hr>
+
+<h2>MÓDULO 2 – VARIÁVEIS E TIPOS DE DADOS</h2>
+
+<h3>2.1 Variáveis</h3>
+
+<p>
+Variáveis são espaços na memória usados para armazenar valores. Elas permitem
+guardar informações e reutilizá-las ao longo do programa.
+</p>
+
+<pre>
+idade = 25
+nome = "João"
+</pre>
+
+<h3>2.2 Tipos de Dados Numéricos</h3>
+
+<p><strong>Inteiro (int):</strong></p>
+
+<pre>
+quantidade = 10
+ano = 2025
+</pre>
+
+<p><strong>Decimal (float):</strong></p>
+
+<pre>
+altura = 1.75
+peso = 68.4
+</pre>
+
+<h3>2.3 Texto (string)</h3>
+
+<pre>
+cidade = "Maceió"
+curso = "Análise e Desenvolvimento de Sistemas"
+</pre>
+
+<h3>2.4 Booleano (bool)</h3>
+
+<pre>
+maior_idade = True
+aprovado = False
+</pre>
+
+<h3>2.5 Operações com Variáveis</h3>
+
+<pre>
+a = 10
+b = 3
+
+soma = a + b
+subtracao = a - b
+multiplicacao = a * b
+divisao = a / b
+</pre>
+
+<hr>
+
+<h2>MÓDULO 3 – ESTRUTURAS CONDICIONAIS</h2>
+
+<h3>3.1 Condicional simples (if)</h3>
+
+<pre>
+idade = 20
+
+if idade >= 18:
+    print("Maior de idade")
+</pre>
+
+<h3>3.2 Condicional composta (if / else)</h3>
+
+<pre>
+idade = 16
+
+if idade >= 18:
+    print("Maior de idade")
+else:
+    print("Menor de idade")
+</pre>
+
+<h3>3.3 Condicional encadeada (if / elif / else)</h3>
+
+<pre>
+nota = 7
+
+if nota >= 7:
+    print("Aprovado")
+elif nota >= 5:
+    print("Recuperação")
+else:
+    print("Reprovado")
+</pre>
+
+<hr>
+
+<h2>MÓDULO 4 – LAÇOS DE REPETIÇÃO</h2>
+
+<h3>4.1 Laço for com range</h3>
+
+<pre>
+for i in range(5):
+    print(i)
+</pre>
+
+<h3>4.2 Laço for com lista</h3>
+
+<pre>
+nomes = ["Ana", "Carlos", "Pedro"]
+
+for nome in nomes:
+    print(nome)
+</pre>
+
+<h3>4.3 Laço while</h3>
+
+<pre>
+contador = 0
+
+while contador < 5:
+    print(contador)
+    contador += 1
+</pre>
+
+<h3>4.4 Controle de laços (break)</h3>
+
+<pre>
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+</pre>
+
+<h3>4.5 Controle de laços (continue)</h3>
+
+<pre>
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+</pre>
+
+<hr>
+
+<h2>MÓDULO 5 – FUNÇÕES</h2>
+
+<h3>5.1 Função simples</h3>
+
+<pre>
+def saudacao():
+    print("Bem-vindo ao Codelingo")
+</pre>
+
+<h3>5.2 Função com parâmetro</h3>
+
+<pre>
+def saudacao(nome):
+    print("Olá,", nome)
+</pre>
+
+<h3>5.3 Função com retorno</h3>
+
+<pre>
+def soma(a, b):
+    return a + b
+</pre>
+
+<h3>5.4 Função com lógica interna</h3>
+
+<pre>
+def verificar_idade(idade):
+    if idade >= 18:
+        return "Maior de idade"
+    else:
+        return "Menor de idade"
+</pre>
+
+<p>
+Funções ajudam a organizar o código, evitar repetição e facilitar a manutenção
+de programas maiores.
+</p>
+
+<hr>
+
+<h2>CONCLUSÃO DO CURSO</h2>
+
+<p>
+Ao finalizar este curso, o estudante terá compreendido os principais conceitos
+da programação em Python, desenvolvendo raciocínio lógico e capacidade de criar
+algoritmos básicos. Essa base é essencial para o avanço em disciplinas mais
+complexas da área de tecnologia.
+</p>
+
 </div>
 
 <footer>
-    Codelingo – Ensino de Python
+    Codelingo – Educação, Tecnologia e Inclusão Digital
 </footer>
 
 </body>
