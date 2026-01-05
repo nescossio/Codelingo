@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Aulas - Codelingo</title>
+    <meta charset="UTF-8">
+    <title>Curso Completo de Python - Codelingo</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
 <header>
-    <h1>Curso Completo de Programação em Python</h1>
-    <p>Apostila introdutória com exemplos práticos e explicações detalhadas</p>
+    <h1>Introdução à Programação com Python</h1>
+    <p>
+        Curso introdutório completo voltado ao desenvolvimento do raciocínio lógico,
+        compreensão dos fundamentos da programação e aplicação prática utilizando
+        a linguagem Python.
+    </p>
 </header>
 
 <nav>
@@ -18,115 +23,306 @@
     <a href="/duvidas">Dúvidas</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-<h2>MÓDULO 1 – O QUE É PROGRAMAR</h2>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 1 – Fundamentos da Programação</h2>
 
 <p>
-Programar é o ato de escrever instruções claras e organizadas para que um
-computador execute determinadas tarefas. Essas instruções seguem uma lógica
-sequencial e são interpretadas por uma linguagem de programação.
+Antes de aprender uma linguagem de programação específica, é fundamental compreender
+o que significa programar. Programar consiste em elaborar uma sequência lógica de
+instruções que será interpretada e executada por um computador. Essas instruções
+precisam ser claras, organizadas e escritas de forma que a máquina consiga compreendê-las.
 </p>
 
 <p>
-Em Python, a instrução mais simples possível é:
+Um programa de computador nada mais é do que a formalização de uma solução para um
+problema. Essa solução deve ser descrita passo a passo, considerando todas as situações
+possíveis. Esse processo desenvolve o chamado <strong>raciocínio lógico</strong>, habilidade essencial
+para qualquer profissional da área de tecnologia.
 </p>
-
-<pre>
-print("Olá, Mundo!")
-</pre>
 
 <p>
-Esse comando exibe um texto na tela. Ele é usado tradicionalmente como o
-primeiro contato com qualquer linguagem de programação.
+A linguagem Python foi criada com o propósito de facilitar esse processo. Ela prioriza
+a legibilidade do código e reduz a quantidade de símbolos complexos, tornando o aprendizado
+mais acessível para iniciantes, sem abrir mão de poder e flexibilidade.
 </p>
+
+<p>
+Python é atualmente utilizada em diversas áreas, como desenvolvimento de sistemas,
+aplicações web, automação de tarefas, ciência de dados, inteligência artificial e
+computação científica.
+</p>
+
+<pre><code class="python">
+print("Olá, mundo!")
+</code></pre>
+
+<p>
+O comando acima utiliza a função <code>print()</code>, responsável por exibir informações
+na tela. Tradicionalmente, esse é o primeiro programa escrito por quem está iniciando
+em programação.
+</p>
+</section>
 
 <hr>
 
-<h2>MÓDULO 2 – VARIÁVEIS E TIPOS DE DADOS</h2>
-
-<h3>2.1 Variáveis</h3>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 2 – Variáveis, Memória e Tipos de Dados</h2>
 
 <p>
-Variáveis são espaços na memória usados para armazenar valores. Elas permitem
-guardar informações e reutilizá-las ao longo do programa.
+Para que um programa possa armazenar e manipular informações, é necessário utilizar
+variáveis. Uma variável pode ser entendida como um espaço reservado na memória do
+computador, onde um valor é armazenado temporariamente durante a execução do programa.
 </p>
 
-<pre>
-idade = 25
+<p>
+Cada variável possui um nome, que será utilizado para acessar o valor armazenado.
+Esse nome deve ser escolhido de forma clara e representativa, facilitando a leitura
+e a manutenção do código.
+</p>
+
+<p>
+Em Python, o tipo da variável não precisa ser declarado previamente. O interpretador
+identifica automaticamente o tipo do dado no momento da atribuição.
+</p>
+
+<h3>Tipos numéricos</h3>
+
+<p>
+Os tipos numéricos são utilizados para representar valores quantitativos. Os dois
+principais tipos numéricos básicos em Python são os inteiros (<code>int</code>) e os números
+decimais (<code>float</code>).
+</p>
+
+<pre><code class="python">
+quantidade = 15      # inteiro
+preco = 19.90        # decimal
+</code></pre>
+
+<p>
+Valores inteiros são utilizados quando não há necessidade de casas decimais, enquanto
+os valores do tipo <code>float</code> são empregados em cálculos mais precisos.
+</p>
+
+<h3>Tipo texto (strings)</h3>
+
+<p>
+Strings são sequências de caracteres utilizadas para representar textos. Elas são
+fundamentais para trabalhar com nomes, mensagens, descrições e qualquer informação
+textual.
+</p>
+
+<pre><code class="python">
 nome = "João"
-</pre>
+mensagem = "Bem-vindo ao curso de Python"
+</code></pre>
 
-<h3>2.2 Tipos de Dados Numéricos</h3>
+<p>
+Strings podem ser delimitadas por aspas simples ou duplas, desde que o padrão seja
+mantido corretamente.
+</p>
 
-<p><strong>Inteiro (int):</strong></p>
+<h3>Tipo lógico (booleano)</h3>
 
-<pre>
-quantidade = 10
-ano = 2025
-</pre>
+<p>
+O tipo booleano representa valores lógicos, ou seja, verdadeiro ou falso. Esses valores
+são amplamente utilizados em estruturas de decisão e controle de fluxo.
+</p>
 
-<p><strong>Decimal (float):</strong></p>
+<pre><code class="python">
+ativo = True
+finalizado = False
+</code></pre>
 
-<pre>
-altura = 1.75
-peso = 68.4
-</pre>
+<h3>Entrada de dados pelo usuário</h3>
 
-<h3>2.3 Texto (string)</h3>
+<p>
+Programas interativos frequentemente necessitam receber informações do usuário.
+Em Python, isso é feito por meio da função <code>input()</code>.
+</p>
 
-<pre>
-cidade = "Maceió"
-curso = "Análise e Desenvolvimento de Sistemas"
-</pre>
+<pre><code class="python">
+nome = input("Digite seu nome: ")
+idade = int(input("Digite sua idade: "))
+</code></pre>
 
-<h3>2.4 Booleano (bool)</h3>
+<p>
+É importante destacar que todo dado recebido por <code>input()</code> é tratado inicialmente
+como texto. Por isso, quando se espera um número, é necessário realizar a conversão
+para o tipo adequado.
+</p>
 
-<pre>
-maior_idade = True
-aprovado = False
-</pre>
+</section>
 
-<h3>2.5 Operações com Variáveis</h3>
+<hr>
 
-<pre>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 3 – Strings e Processamento de Texto</h2>
+
+<p>
+O processamento de texto é uma das tarefas mais comuns em programação. Python oferece
+uma grande variedade de recursos para trabalhar com strings de forma eficiente e
+intuitiva.
+</p>
+
+<p>
+Uma string é uma sequência ordenada de caracteres, e cada caractere possui uma posição,
+também chamada de índice. O primeiro caractere sempre possui índice zero.
+</p>
+
+<pre><code class="python">
+texto = "Programação em Python"
+</code></pre>
+
+<h3>Operações básicas com strings</h3>
+
+<p>
+Python disponibiliza diversos métodos prontos para manipular strings. Esses métodos
+facilitam tarefas como conversão de letras, verificação de conteúdo e contagem de
+caracteres.
+</p>
+
+<pre><code class="python">
+len(texto)                 # retorna o tamanho do texto
+texto.upper()              # converte para maiúsculas
+texto.lower()              # converte para minúsculas
+texto.capitalize()         # primeira letra maiúscula
+texto.count("o")           # conta ocorrências
+texto.startswith("Pro")    # verifica início
+texto.endswith("thon")     # verifica final
+</code></pre>
+
+<h3>Fatiamento de strings</h3>
+
+<p>
+O fatiamento permite extrair partes específicas de uma string, utilizando intervalos
+definidos por índices. Essa técnica é muito útil para análise e manipulação de textos.
+</p>
+
+<pre><code class="python">
+palavra = "Python"
+
+palavra[0:3]   # 'Pyt'
+palavra[2:]    # 'thon'
+palavra[:4]    # 'Pyth'
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 4 – Operadores e Expressões</h2>
+
+<p>
+Operadores são símbolos utilizados para realizar cálculos, comparações e avaliações
+lógicas. Eles são fundamentais para a construção de expressões que determinam o
+comportamento de um programa.
+</p>
+
+<h3>Operadores aritméticos</h3>
+
+<pre><code class="python">
 a = 10
 b = 3
 
-soma = a + b
-subtracao = a - b
-multiplicacao = a * b
-divisao = a / b
-</pre>
+a + b   # soma
+a - b   # subtração
+a * b   # multiplicação
+a / b   # divisão
+a % b   # resto
+a ** b  # potência
+</code></pre>
+
+<h3>Operadores de comparação e lógicos</h3>
+
+<pre><code class="python">
+idade = 20
+tem_autorizacao = True
+
+if idade >= 18 and tem_autorizacao:
+    print("Acesso permitido")
+</code></pre>
+
+<p>
+Esses operadores permitem que o programa tome decisões com base em condições.
+</p>
+
+</section>
 
 <hr>
 
-<h2>MÓDULO 3 – ESTRUTURAS CONDICIONAIS</h2>
+<section>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 5 – Estruturas de Decisão (Condicionais)</h2>
 
-<h3>3.1 Condicional simples (if)</h3>
+<p>
+Em programação, muitas situações exigem que o programa tome decisões diferentes
+dependendo dos dados que estão sendo processados. Essas decisões são baseadas em
+condições lógicas, que podem ser verdadeiras ou falsas.
+</p>
 
-<pre>
-idade = 20
+<p>
+As estruturas de decisão permitem alterar o fluxo normal de execução de um programa.
+Em vez de executar todas as instruções de forma sequencial, o programa pode escolher
+qual bloco de código será executado.
+</p>
+
+<p>
+Em Python, as principais estruturas de decisão são: <code>if</code>, <code>if...else</code> e
+<code>if...elif...else</code>.
+</p>
+
+<h3>Estrutura condicional simples (if)</h3>
+
+<p>
+A estrutura <code>if</code> é utilizada quando se deseja executar um bloco de código
+apenas se uma determinada condição for verdadeira.
+</p>
+
+<pre><code class="python">
+idade = 18
 
 if idade >= 18:
-    print("Maior de idade")
-</pre>
+    print("Usuário maior de idade")
+</code></pre>
 
-<h3>3.2 Condicional composta (if / else)</h3>
+<p>
+Se a condição for falsa, o bloco interno simplesmente não é executado.
+</p>
 
-<pre>
+<h3>Estrutura condicional composta (if / else)</h3>
+
+<p>
+Quando é necessário definir um comportamento alternativo para o caso da condição
+não ser satisfeita, utiliza-se a estrutura <code>else</code>.
+</p>
+
+<pre><code class="python">
 idade = 16
 
 if idade >= 18:
     print("Maior de idade")
 else:
     print("Menor de idade")
-</pre>
+</code></pre>
 
-<h3>3.3 Condicional encadeada (if / elif / else)</h3>
+<h3>Estrutura condicional encadeada (if / elif / else)</h3>
 
-<pre>
-nota = 7
+<p>
+Em situações onde existem várias possibilidades, utiliza-se o comando <code>elif</code>.
+O Python avalia as condições na ordem em que aparecem, executando apenas o primeiro
+bloco verdadeiro.
+</p>
+
+<pre><code class="python">
+nota = 5.5
 
 if nota >= 7:
     print("Aprovado")
@@ -134,111 +330,279 @@ elif nota >= 5:
     print("Recuperação")
 else:
     print("Reprovado")
-</pre>
+</code></pre>
+
+<p>
+Essa estrutura é amplamente utilizada em sistemas de avaliação, menus e validações.
+</p>
+</section>
 
 <hr>
 
-<h2>MÓDULO 4 – LAÇOS DE REPETIÇÃO</h2>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 6 – Estruturas de Repetição (Laços)</h2>
 
-<h3>4.1 Laço for com range</h3>
+<p>
+Estruturas de repetição são utilizadas quando se deseja executar um mesmo conjunto
+de instruções várias vezes. Essas estruturas são fundamentais para evitar repetição
+manual de código e tornar os programas mais eficientes.
+</p>
 
-<pre>
-for i in range(5):
-    print(i)
-</pre>
+<p>
+Em Python, os principais laços de repetição são o <code>while</code> e o <code>for</code>.
+</p>
 
-<h3>4.2 Laço for com lista</h3>
+<h3>Laço while</h3>
 
-<pre>
-nomes = ["Ana", "Carlos", "Pedro"]
+<p>
+O laço <code>while</code> executa um bloco de código enquanto uma condição lógica for
+verdadeira. A condição é verificada antes de cada repetição.
+</p>
 
-for nome in nomes:
-    print(nome)
-</pre>
-
-<h3>4.3 Laço while</h3>
-
-<pre>
+<pre><code class="python">
 contador = 0
 
 while contador < 5:
-    print(contador)
+    print("Valor:", contador)
     contador += 1
-</pre>
+</code></pre>
 
-<h3>4.4 Controle de laços (break)</h3>
+<p>
+É fundamental garantir que a condição eventualmente se torne falsa, evitando
+laços infinitos.
+</p>
 
-<pre>
+<h3>Laço for</h3>
+
+<p>
+O laço <code>for</code> é utilizado quando se conhece previamente a quantidade de
+iterações ou quando se deseja percorrer uma sequência de valores.
+</p>
+
+<pre><code class="python">
+for i in range(1, 6):
+    print("Número:", i)
+</code></pre>
+
+<p>
+O comando <code>range()</code> gera uma sequência de números inteiros, podendo receber
+valores de início, fim e passo.
+</p>
+
+<h3>Controle de laços</h3>
+
+<p>
+Os comandos <code>break</code> e <code>continue</code> permitem controlar o fluxo de execução
+dentro dos laços.
+</p>
+
+<pre><code class="python">
 for i in range(10):
     if i == 5:
         break
     print(i)
-</pre>
+</code></pre>
 
-<h3>4.5 Controle de laços (continue)</h3>
-
-<pre>
+<pre><code class="python">
 for i in range(5):
     if i == 2:
         continue
     print(i)
-</pre>
+</code></pre>
+
+</section>
 
 <hr>
 
-<h2>MÓDULO 5 – FUNÇÕES</h2>
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 7 – Listas</h2>
 
-<h3>5.1 Função simples</h3>
+<p>
+Listas são estruturas de dados que permitem armazenar múltiplos valores em uma única
+variável. Elas são ordenadas, mutáveis e muito versáteis.
+</p>
 
-<pre>
+<p>
+Cada elemento de uma lista possui um índice, iniciando sempre em zero.
+</p>
+
+<pre><code class="python">
+valores = [10, 20, 30, 40]
+print(valores[0])
+</code></pre>
+
+<h3>Manipulação de listas</h3>
+
+<p>
+Python oferece diversas funções e métodos para manipular listas.
+</p>
+
+<pre><code class="python">
+numeros = [5, 2, 9, 1]
+
+numeros.append(7)
+numeros.sort()
+numeros.reverse()
+</code></pre>
+
+<h3>Fatiamento de listas</h3>
+
+<pre><code class="python">
+numeros = [0, 1, 2, 3, 4, 5]
+numeros[1:4]
+</code></pre>
+
+<h3>Listas com range</h3>
+
+<pre><code class="python">
+lista = list(range(0, 20, 2))
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 8 – Tuplas</h2>
+
+<p>
+Tuplas são estruturas semelhantes às listas, porém imutáveis. Isso significa que
+seus elementos não podem ser alterados após a criação.
+</p>
+
+<p>
+Elas são utilizadas quando se deseja garantir que um conjunto de dados não seja
+modificado acidentalmente.
+</p>
+
+<pre><code class="python">
+coordenadas = (10, 20)
+</code></pre>
+
+<h3>Desempacotamento de tuplas</h3>
+
+<pre><code class="python">
+x, y = coordenadas
+print(x, y)
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 9 – Dicionários</h2>
+
+<p>
+Dicionários são estruturas que armazenam dados no formato chave–valor, permitindo
+acesso rápido às informações por meio de uma chave.
+</p>
+
+<pre><code class="python">
+aluno = {
+    "nome": "Lucas",
+    "idade": 22,
+    "curso": "ADS"
+}
+</code></pre>
+
+<h3>Manipulação de dicionários</h3>
+
+<pre><code class="python">
+aluno["idade"] = 23
+aluno["matricula"] = "20250123"
+</code></pre>
+
+<h3>Percorrendo dicionários</h3>
+
+<pre><code class="python">
+for chave, valor in aluno.items():
+    print(chave, ":", valor)
+</code></pre>
+
+</section>
+
+<hr>
+
+<!-- ================================================= -->
+<section>
+<h2>Capítulo 10 – Funções</h2>
+
+<p>
+Funções permitem organizar o código em blocos reutilizáveis, facilitando a manutenção
+e a leitura dos programas.
+</p>
+
+<h3>Definição de função</h3>
+
+<pre><code class="python">
 def saudacao():
     print("Bem-vindo ao Codelingo")
-</pre>
+</code></pre>
 
-<h3>5.2 Função com parâmetro</h3>
+<h3>Funções com parâmetros</h3>
 
-<pre>
+<pre><code class="python">
 def saudacao(nome):
     print("Olá,", nome)
-</pre>
+</code></pre>
 
-<h3>5.3 Função com retorno</h3>
+<h3>Retorno de valores</h3>
 
-<pre>
+<pre><code class="python">
 def soma(a, b):
     return a + b
-</pre>
+</code></pre>
 
-<h3>5.4 Função com lógica interna</h3>
-
-<pre>
-def verificar_idade(idade):
-    if idade >= 18:
-        return "Maior de idade"
-    else:
-        return "Menor de idade"
-</pre>
+<h3>Escopo de variáveis</h3>
 
 <p>
-Funções ajudam a organizar o código, evitar repetição e facilitar a manutenção
-de programas maiores.
+Variáveis definidas dentro de uma função possuem escopo local e não afetam variáveis
+externas com o mesmo nome.
 </p>
+
+<pre><code class="python">
+def exemplo():
+    x = 10
+    print(x)
+
+x = 5
+exemplo()
+print(x)
+</code></pre>
+
+<h3>Parâmetros com valor padrão</h3>
+
+<pre><code class="python">
+def calcular_desconto(valor, taxa=10):
+    return valor * taxa / 100
+</code></pre>
+
+</section>
 
 <hr>
 
-<h2>CONCLUSÃO DO CURSO</h2>
+<section>
+<h2>Conclusão Geral</h2>
 
 <p>
-Ao finalizar este curso, o estudante terá compreendido os principais conceitos
-da programação em Python, desenvolvendo raciocínio lógico e capacidade de criar
-algoritmos básicos. Essa base é essencial para o avanço em disciplinas mais
-complexas da área de tecnologia.
+Este curso apresentou de forma detalhada e progressiva os principais conceitos da
+programação com Python. O estudante agora compreende desde fundamentos básicos até
+estruturas essenciais para construção de programas completos.
 </p>
 
-</div>
+</section>
+
+</section>
+
+</main>
 
 <footer>
-    Codelingo – Educação, Tecnologia e Inclusão Digital
+    <p>Codelingo – Educação, Tecnologia e Inclusão Digital</p>
 </footer>
 
 </body>
