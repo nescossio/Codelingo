@@ -3,6 +3,27 @@
 <head>
     <title>Exercícios - Codelingo</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Skulpt Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+    
+    <style>
+        #terminal-output {
+            background-color: #1e1e1e;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            padding: 15px;
+            border-radius: 5px;
+            min-height: 50px;
+            white-space: pre-wrap;
+            margin-top: 15px;
+            border: 1px solid #333;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
 
@@ -18,29 +39,129 @@
 </nav>
 
 <div class="container">
-    <h2>Exercício 1</h2>
-    <p>Escreva um código em Python que imprima <strong>Olá, Mundo!</strong></p>
+    <div class="exercicio-container">
+        <h2 id="titulo">Carregando...</h2>
+        <p id="enunciado"></p>
 
-    <textarea id="codigo"></textarea>
-    <button onclick="enviar()">Enviar Resposta</button>
+        <textarea id="codigo" placeholder="Digite seu código Python aqui..."></textarea>
+        
+        <div>
+            <button class="btn-enviar" onclick="executarCodigo()">Executar e Verificar</button>
+            <button id="btnProximo" class="btn-proximo" onclick="proximoExercicio()">Próximo Exercício >></button>
+        </div>
 
-    <p id="resultado"></p>
+        <div id="terminal-output" style="display:none;"></div>
+        <p id="resultado"></p>
+    </div>
 </div>
 
 <script>
-function enviar() {
+let exercicioAtualId = 1;
+let totalExercicios = 0;
+
+function carregarExercicio(id) {
+    fetch(`/api/exercicio/${id}`)
+        .then(res => {
+            if (!res.ok) throw new Error("Exercício não encontrado");
+            return res.json();
+        })
+        .then(data => {
+            document.getElementById("titulo").innerText = data.titulo;
+            document.getElementById("enunciado").innerHTML = data.enunciado;
+            document.getElementById("codigo").value = "";
+            document.getElementById("resultado").innerText = "";
+            document.getElementById("btnProximo").style.display = "none";
+            document.getElementById("terminal-output").style.display = "none";
+            document.getElementById("terminal-output").innerText = "";
+            
+            totalExercicios = data.total;
+            exercicioAtualId = data.id;
+        })
+        .catch(err => {
+            document.getElementById("titulo").innerText = "Parabéns!";
+            document.getElementById("enunciado").innerText = "Você concluiu todos os exercícios disponíveis por enquanto.";
+            document.getElementById("codigo").style.display = "none";
+            document.querySelector(".btn-enviar").style.display = "none";
+            document.getElementById("btnProximo").style.display = "none";
+            document.getElementById("terminal-output").style.display = "none";
+        });
+}
+
+function outf(text) { 
+    var mypre = document.getElementById("terminal-output"); 
+    mypre.innerText = mypre.innerText + text; 
+} 
+
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+            throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
+}
+
+function executarCodigo() {
+    var prog = document.getElementById("codigo").value; 
+    var mypre = document.getElementById("terminal-output"); 
+    
+    mypre.style.display = "block";
+    mypre.innerText = ""; // Limpa output anterior
+    
+    Sk.pre = "terminal-output";
+    Sk.configure({output:outf, read:builtinRead}); 
+    
+    var myPromise = Sk.misceval.asyncToPromise(function() {
+        return Sk.importMainWithBody("<stdin>", false, prog, true);
+    });
+
+    myPromise.then(function(mod) {
+        // Sucesso na execução local, agora envia o OUTPUT para validação
+        console.log('Execução finalizada com sucesso');
+        validarResposta(prog, mypre.innerText);
+    },
+    function(err) {
+        // Erro na execução Python
+        mypre.innerText = err.toString();
+        document.getElementById("resultado").innerText = "Erro no código Python. Verifique o terminal acima.";
+        document.getElementById("resultado").className = "feedback-erro";
+    });
+}
+
+function validarResposta(codigo, saida) {
+    const resultadoEl = document.getElementById("resultado");
+    resultadoEl.innerText = "Verificando...";
+    resultadoEl.className = "loading";
+
     fetch("/verificar", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            resposta: document.getElementById("codigo").value
+            codigo_usuario: codigo,
+            saida_usuario: saida,
+            exercicio_id: exercicioAtualId
         })
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById("resultado").innerText = data.resultado;
+        resultadoEl.innerText = data.resultado;
+        if (data.sucesso) {
+            resultadoEl.className = "feedback-correto";
+            if (exercicioAtualId < totalExercicios) {
+                document.getElementById("btnProximo").style.display = "inline-block";
+            } else {
+                 resultadoEl.innerText += " (Você finalizou a trilha!)";
+            }
+        } else {
+            resultadoEl.className = "feedback-erro";
+        }
     });
 }
+
+function proximoExercicio() {
+    carregarExercicio(exercicioAtualId + 1);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    carregarExercicio(1);
+});
 </script>
 
 <footer>
