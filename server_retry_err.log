@@ -1,0 +1,390 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:10000
+ * Running on http://192.168.0.5:10000
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jan/2026 19:38:33] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:38:33] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:38:33,956] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), null)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:38:33] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:38:34] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [06/Jan/2026 19:38:35] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:38:36] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:38:36,470] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), null)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:38:36] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:38:37] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:38:37] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:38:38,064] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), null)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:38:38] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:38:38] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:38:39] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:38:39,377] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), null)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:38:39] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:38:39] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:38:40] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:38:40,533] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), null)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:38:40] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:04] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:04] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:04,589] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:04] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:05] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:05] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:06,045] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:06] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:07] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:07] "GET /static/css/style.css HTTP/1.1" 200 -
+[2026-01-06 19:40:08,109] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:08] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [06/Jan/2026 19:40:09] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:09] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:10,225] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:10] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:11] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:11] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:11,426] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:11] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:12] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:12] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:12,432] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:12] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:13] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:13] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:13,546] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:13] "GET /api/exercicio/1 HTTP/1.1" 500 -
+[2026-01-06 19:40:55,889] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:55] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:40:59] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:40:59] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:40:59,406] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:40:59] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:41:00] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:41:00] "GET /static/css/style.css HTTP/1.1" 304 -
+[2026-01-06 19:41:00,538] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:41:00] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:41:02] "GET /exercicios HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 19:41:02] "GET /static/css/style.css HTTP/1.1" 200 -
+[2026-01-06 19:41:02,404] ERROR in app: Exception on /api/exercicio/1 [GET]
+Traceback (most recent call last):
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 40, in get_exercicio
+    exercicio = buscar_exercicio_por_id(id)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 75, in buscar_exercicio_por_id
+    return next((ex for ex in EXERCICIOS if ex["id"] == id_buscado), None)
+                                                                     ^^^^
+NameError: name 'null' is not defined
+127.0.0.1 - - [06/Jan/2026 19:41:02] "GET /api/exercicio/1 HTTP/1.1" 500 -
+127.0.0.1 - - [06/Jan/2026 19:41:02] "GET /favicon.ico HTTP/1.1" 404 -

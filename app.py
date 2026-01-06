@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os
+from exercicios import EXERCICIOS, buscar_exercicio_por_id
 
 app = Flask(__name__)
 
@@ -34,6 +35,18 @@ def aulas():
 def exercicios():
     return render_template("exercicios.html")
 
+@app.route("/api/exercicio/<int:id>")
+def get_exercicio(id):
+    exercicio = buscar_exercicio_por_id(id)
+    if exercicio:
+        return jsonify({
+            "id": exercicio["id"],
+            "titulo": exercicio["titulo"],
+            "enunciado": exercicio["enunciado"],
+            "total": len(EXERCICIOS)
+        })
+    return jsonify({"error": "Exercício não encontrado"}), 404
+
 @app.route("/duvidas", methods=["GET", "POST"])
 def duvidas():
     if request.method == "POST":
@@ -48,12 +61,36 @@ def duvidas():
 
 @app.route("/verificar", methods=["POST"])
 def verificar():
-    resposta = request.json["resposta"]
-    correta = "print('Olá, Mundo!')"
+    dados = request.json
+    saida_usuario = dados.get("saida_usuario", "").strip()
+    codigo_usuario = dados.get("codigo_usuario", "")
+    exercicio_id = dados.get("exercicio_id")
 
-    if resposta.strip() == correta:
-        return jsonify({"resultado": "Correto! Parabéns."})
-    return jsonify({"resultado": "Resposta incorreta. Tente novamente."})
+    exercicio = buscar_exercicio_por_id(exercicio_id)
+    
+    if not exercicio:
+        return jsonify({"resultado": "Erro: Exercício não encontrado."})
+
+    # 1. Validação da Saída (Output)
+    saida_esperada = exercicio["saida_esperada"].strip()
+    
+    # Normaliza quebras de linha (Windows \r\n vs Unix \n)
+    if saida_usuario.replace("\r\n", "\n").strip() == saida_esperada.replace("\r\n", "\n").strip():
+        
+        # 2. Validação Estática (Opcional - verifica se usou o conceito pedido)
+        dica = exercicio.get("dica_validacao")
+        if dica and dica not in codigo_usuario:
+             return jsonify({
+                "resultado": f"A saída está correta, mas você precisa usar '{dica}' no seu código!",
+                "sucesso": False
+            })
+
+        return jsonify({"resultado": "Correto! Parabéns.", "sucesso": True})
+    
+    return jsonify({
+        "resultado": f"Resposta incorreta.\nEsperado: {saida_esperada}\nSeu resultado: {saida_usuario if saida_usuario else '(vazio)'}", 
+        "sucesso": False
+    })
 
 import os
 

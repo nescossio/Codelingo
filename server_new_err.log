@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\app.py", line 4, in <module>
+    from exercicios import EXERCICIOS, buscar_exercicio_por_id
+  File "C:\Users\roalc\Documents\Projetos\Codelingo\exercicios.py", line 7, in <module>
+    "dica_validacao": null
+                      ^^^^
+NameError: name 'null' is not defined
