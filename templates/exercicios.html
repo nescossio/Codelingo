@@ -39,6 +39,15 @@
 </nav>
 
 <div class="container">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <span id="capituloTitulo" style="font-weight: bold; color: #555;">Todos os Exercícios</span>
+        <a href="/aulas" style="margin-left: 15px; font-size: 0.9em;">(Ver Aulas)</a>
+    </div>
+
+    <div id="progressMap" class="progress-map">
+        <!-- Bolinhas geradas via JS -->
+    </div>
+
     <div class="exercicio-container">
         <h2 id="titulo">Carregando...</h2>
         <p id="enunciado"></p>
@@ -57,9 +66,100 @@
 
 <script>
 let exercicioAtualId = 1;
-let totalExercicios = 0;
+let totalExerciciosNaTela = 0;
+let listaExerciciosTela = [];
+let maxDesbloqueado = parseInt(localStorage.getItem("codelingo_max_level") || "1");
+
+// Garante que o maxDesbloqueado é válido
+if (isNaN(maxDesbloqueado)) maxDesbloqueado = 1;
+
+function carregarDadosIniciais() {
+    const params = new URLSearchParams(window.location.search);
+    const capitulo = params.get("capitulo");
+    
+    let url = "/api/exercicios";
+    if (capitulo) {
+        url += `?capitulo=${capitulo}`;
+        document.getElementById("capituloTitulo").innerText = `Exercícios do Capítulo ${capitulo}`;
+    }
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            listaExerciciosTela = data;
+            totalExerciciosNaTela = data.length;
+            
+            if (listaExerciciosTela.length === 0) {
+                 document.getElementById("titulo").innerText = "Nenhum exercício encontrado.";
+                 document.getElementById("enunciado").innerText = "Tente selecionar outro capítulo.";
+                 document.getElementById("codigo").style.display = "none";
+                 document.querySelector(".btn-enviar").style.display = "none";
+                 return;
+            }
+
+            renderizarMapa();
+            
+            // Lógica inteligente de qual carregar:
+            // 1. Tenta carregar o primeiro NÃO FEITO desta lista.
+            // 2. Se todos feitos, carrega o último desta lista.
+            // 3. Se bloqueado (ID > maxDesbloqueado), carrega o maxDesbloqueado (se estiver na lista) ou o primeiro da lista.
+            
+            let idParaCarregar = listaExerciciosTela[0].id;
+            
+            // Acha o primeiro da lista que ainda não foi superado pelo maxDesbloqueado
+            // Ou o último se maxDesbloqueado for muito grande
+            for (let ex of listaExerciciosTela) {
+                if (ex.id <= maxDesbloqueado) {
+                    idParaCarregar = ex.id; // Vai avançando até onde der
+                } else {
+                    break; 
+                }
+            }
+            
+            // Se o usuário clicou num capítulo muito avançado (todos bloqueados)
+            if (listaExerciciosTela[0].id > maxDesbloqueado) {
+                 // Pode bloquear tudo ou deixar ver o primeiro como "preview"
+                 // Por enquanto, vamos carregar o primeiro mas vai aparecer bloqueado no mapa
+                 idParaCarregar = listaExerciciosTela[0].id;
+            }
+
+            carregarExercicio(idParaCarregar);
+        });
+}
+
+function renderizarMapa() {
+    const mapDiv = document.getElementById("progressMap");
+    mapDiv.innerHTML = "";
+
+    listaExerciciosTela.forEach(ex => {
+        const div = document.createElement("div");
+        div.className = "step";
+        div.innerText = ex.id; // Ou ex.titulo para tooltip
+
+        // Estados
+        if (ex.id === exercicioAtualId) {
+            div.classList.add("current");
+        } else if (ex.id <= maxDesbloqueado) {
+            div.classList.add("completed");
+            div.onclick = () => carregarExercicio(ex.id);
+            div.title = ex.titulo;
+        } else {
+            div.classList.add("locked");
+            div.title = "Bloqueado";
+        }
+
+        mapDiv.appendChild(div);
+    });
+}
 
 function carregarExercicio(id) {
+    // Verifica se o id pertence à lista atual (segurança visual)
+    const pertence = listaExerciciosTela.find(e => e.id === id);
+    
+    // Se não pertence à lista carregada (ex: mudou de cap), não impede o load, mas atenção ao mapa
+    exercicioAtualId = id;
+    renderizarMapa();
+
     fetch(`/api/exercicio/${id}`)
         .then(res => {
             if (!res.ok) throw new Error("Exercício não encontrado");
@@ -70,20 +170,17 @@ function carregarExercicio(id) {
             document.getElementById("enunciado").innerHTML = data.enunciado;
             document.getElementById("codigo").value = "";
             document.getElementById("resultado").innerText = "";
+            document.getElementById("resultado").className = "";
             document.getElementById("btnProximo").style.display = "none";
             document.getElementById("terminal-output").style.display = "none";
             document.getElementById("terminal-output").innerText = "";
             
-            totalExercicios = data.total;
-            exercicioAtualId = data.id;
+            // Re-habilita botão se estava escondido
+            document.getElementById("codigo").style.display = "block";
+            document.querySelector(".btn-enviar").style.display = "inline-block";
         })
         .catch(err => {
-            document.getElementById("titulo").innerText = "Parabéns!";
-            document.getElementById("enunciado").innerText = "Você concluiu todos os exercícios disponíveis por enquanto.";
-            document.getElementById("codigo").style.display = "none";
-            document.querySelector(".btn-enviar").style.display = "none";
-            document.getElementById("btnProximo").style.display = "none";
-            document.getElementById("terminal-output").style.display = "none";
+            console.error(err);
         });
 }
 
@@ -98,27 +195,46 @@ function builtinRead(x) {
     return Sk.builtinFiles["files"][x];
 }
 
+function inputFunc(promptText) {
+    return new Promise(function(resolve, reject) {
+        // Mostra a pergunta no terminal
+        outf(promptText);
+        
+        setTimeout(() => {
+            let resposta = window.prompt(promptText || "Digite algo:");
+            if (resposta === null) resposta = ""; 
+            
+            // NÃO ecoa a resposta, apenas pula a linha para o próximo comando
+            outf("\n");
+            
+            resolve(resposta);
+        }, 10);
+    });
+}
+
 function executarCodigo() {
     var prog = document.getElementById("codigo").value; 
     var mypre = document.getElementById("terminal-output"); 
     
     mypre.style.display = "block";
-    mypre.innerText = ""; // Limpa output anterior
+    mypre.innerText = ""; 
     
     Sk.pre = "terminal-output";
-    Sk.configure({output:outf, read:builtinRead}); 
+    Sk.configure({
+        output: outf, 
+        read: builtinRead,
+        inputfun: inputFunc,
+        inputfunTakesPrompt: true
+    }); 
     
     var myPromise = Sk.misceval.asyncToPromise(function() {
         return Sk.importMainWithBody("<stdin>", false, prog, true);
     });
 
     myPromise.then(function(mod) {
-        // Sucesso na execução local, agora envia o OUTPUT para validação
-        console.log('Execução finalizada com sucesso');
         validarResposta(prog, mypre.innerText);
     },
     function(err) {
-        // Erro na execução Python
         mypre.innerText = err.toString();
         document.getElementById("resultado").innerText = "Erro no código Python. Verifique o terminal acima.";
         document.getElementById("resultado").className = "feedback-erro";
@@ -144,10 +260,40 @@ function validarResposta(codigo, saida) {
         resultadoEl.innerText = data.resultado;
         if (data.sucesso) {
             resultadoEl.className = "feedback-correto";
-            if (exercicioAtualId < totalExercicios) {
+            
+            if (exercicioAtualId >= maxDesbloqueado) {
+                maxDesbloqueado = exercicioAtualId + 1;
+                localStorage.setItem("codelingo_max_level", maxDesbloqueado);
+            }
+            renderizarMapa();
+
+            // Lógica do botão Próximo
+            // Verifica se existe um PRÓXIMO exercício NA LISTA ATUAL
+            const indexAtual = listaExerciciosTela.findIndex(e => e.id === exercicioAtualId);
+            
+            if (indexAtual >= 0 && indexAtual < listaExerciciosTela.length - 1) {
+                // Tem mais exercícios NESTE capítulo
+                document.getElementById("btnProximo").onclick = proximoExercicio;
+                document.getElementById("btnProximo").innerText = "Próximo Exercício >>";
                 document.getElementById("btnProximo").style.display = "inline-block";
             } else {
-                 resultadoEl.innerText += " (Você finalizou a trilha!)";
+                // Acabou o capítulo
+                resultadoEl.innerText += " (Você completou este capítulo!)";
+                
+                document.getElementById("btnProximo").onclick = () => {
+                    const params = new URLSearchParams(window.location.search);
+                    const cap = params.get("capitulo");
+                    if (cap) {
+                        const proximoCap = parseInt(cap) + 1;
+                        // Redireciona para o próximo capítulo
+                        window.location.href = `/aulas#capitulo-${proximoCap}`;
+                    } else {
+                        window.location.href = "/aulas";
+                    }
+                };
+                
+                document.getElementById("btnProximo").innerText = "Voltar às Aulas";
+                document.getElementById("btnProximo").style.display = "inline-block";
             }
         } else {
             resultadoEl.className = "feedback-erro";
@@ -156,11 +302,15 @@ function validarResposta(codigo, saida) {
 }
 
 function proximoExercicio() {
-    carregarExercicio(exercicioAtualId + 1);
+    // Busca o próximo ID na lista atual
+    const indexAtual = listaExerciciosTela.findIndex(e => e.id === exercicioAtualId);
+    if (indexAtual >= 0 && indexAtual < listaExerciciosTela.length - 1) {
+        carregarExercicio(listaExerciciosTela[indexAtual + 1].id);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    carregarExercicio(1);
+    carregarDadosIniciais();
 });
 </script>
 

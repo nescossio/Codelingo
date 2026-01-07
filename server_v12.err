@@ -1,0 +1,30 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:10000
+ * Running on http://192.168.0.5:10000
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jan/2026 20:57:51] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:57:57] "GET /api/exercicio/14 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:58:29] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:58:35] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:58:40] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:58:43] "GET /api/exercicio/15 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:28] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:46] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:46] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:59:48] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:48] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:59:51] "GET /exercicios?capitulo=1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:52] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:59:52] "GET /api/exercicios?capitulo=1 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:59:52] "GET /api/exercicio/3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:08] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:10] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:10] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 21:00:14] "GET /exercicios?capitulo=2 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:14] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 21:00:14] "GET /api/exercicios?capitulo=2 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:15] "GET /api/exercicio/6 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:31] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:34] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 21:00:34] "GET /static/css/style.css HTTP/1.1" 304 -

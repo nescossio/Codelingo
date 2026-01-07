@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 import os
-from exercicios import EXERCICIOS, buscar_exercicio_por_id
+from exercicios import EXERCICIOS, buscar_exercicio_por_id, buscar_exercicios_por_capitulo
 
 app = Flask(__name__)
 
@@ -34,6 +34,24 @@ def aulas():
 @app.route("/exercicios")
 def exercicios():
     return render_template("exercicios.html")
+
+@app.route("/api/exercicios")
+def get_todos_exercicios():
+    capitulo = request.args.get("capitulo")
+    
+    if capitulo:
+        try:
+            capitulo_id = int(capitulo)
+            lista = buscar_exercicios_por_capitulo(capitulo_id)
+        except ValueError:
+            return jsonify({"error": "ID do capítulo inválido"}), 400
+    else:
+        lista = EXERCICIOS
+
+    return jsonify([
+        {"id": ex["id"], "titulo": ex["titulo"], "capitulo": ex["capitulo"]} 
+        for ex in lista
+    ])
 
 @app.route("/api/exercicio/<int:id>")
 def get_exercicio(id):
@@ -73,9 +91,22 @@ def verificar():
 
     # 1. Validação da Saída (Output)
     saida_esperada = exercicio["saida_esperada"].strip()
+    saida_usuario_norm = saida_usuario.replace("\r\n", "\n").strip()
+    saida_esperada_norm = saida_esperada.replace("\r\n", "\n").strip()
     
-    # Normaliza quebras de linha (Windows \r\n vs Unix \n)
-    if saida_usuario.replace("\r\n", "\n").strip() == saida_esperada.replace("\r\n", "\n").strip():
+    # Lógica flexível:
+    # 1. Exato
+    # 2. Contém (para casos com input prompt sujando o output)
+    
+    passou = False
+    if saida_usuario_norm == saida_esperada_norm:
+        passou = True
+    elif saida_esperada_norm in saida_usuario_norm:
+        # Se a resposta esperada está contida na saída do usuário, consideramos certo
+        # (Útil para exercícios com input() que imprimem o prompt junto)
+        passou = True
+
+    if passou:
         
         # 2. Validação Estática (Opcional - verifica se usou o conceito pedido)
         dica = exercicio.get("dica_validacao")
