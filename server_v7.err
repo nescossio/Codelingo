@@ -1,0 +1,19 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:10000
+ * Running on http://192.168.0.5:10000
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jan/2026 20:36:17] "GET /exercicios?capitulo=3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:18] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:36:18] "GET /api/exercicios?capitulo=3 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:18] "GET /api/exercicio/7 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:21] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:21] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:36:24] "GET /exercicios?capitulo=2 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:24] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:36:24] "GET /api/exercicios?capitulo=2 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:24] "GET /api/exercicio/6 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:36:45] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:37:10] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:37:25] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:37:35] "POST /verificar HTTP/1.1" 200 -

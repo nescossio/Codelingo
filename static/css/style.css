@@ -51,6 +51,69 @@ code {
     font-weight: bold;
 }
 
+.btn-praticar {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-praticar:hover {
+    background-color: #218838;
+    text-decoration: none;
+}
+
+/* Barra de Progresso / Mapa */
+.progress-map {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.step {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: default;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.step.completed {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+.step.current {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,123,255,0.4);
+    cursor: default;
+}
+
+.step.locked {
+    background-color: #e9ecef;
+    color: #bbb;
+}
+
+.step.completed:hover {
+    background-color: #218838;
+}
+
 /* Estilos para a página de exercícios */
 .exercicio-container {
     border: 1px solid #ddd;

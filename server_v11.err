@@ -1,0 +1,21 @@
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:10000
+ * Running on http://192.168.0.5:10000
+Press CTRL+C to quit
+127.0.0.1 - - [06/Jan/2026 20:50:07] "GET /exercicios?capitulo=4 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:50:07] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:50:07] "GET /api/exercicios?capitulo=4 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:50:08] "GET /api/exercicio/10 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:50:30] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:50:34] "GET /api/exercicio/11 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:50:56] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:51:06] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:51:08] "GET /api/exercicio/12 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:51:57] "POST /verificar HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:52:01] "GET /aulas HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:52:01] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:53:23] "GET /exercicios?capitulo=5 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:53:23] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [06/Jan/2026 20:53:23] "GET /api/exercicios?capitulo=5 HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jan/2026 20:53:23] "GET /api/exercicio/13 HTTP/1.1" 200 -
