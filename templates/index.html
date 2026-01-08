@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Codelingo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codelingo - Aprenda Python</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <header>
-    <img src="/static/images/logo.png" alt="Logo Codelingo" style="max-width:180px;">
+    <img src="/static/images/logo.png" alt="Logo Codelingo" style="max-width:180px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));">
     <h1>Codelingo</h1>
-    <p>Plataforma gratuita para aprendizado interativo de Python</p>
+    <p>A plataforma definitiva para aprender Python de forma interativa e gratuita</p>
 </header>
 
 <nav>
-    <a href="/">Início</a>
+    <a href="/" class="active">Início</a>
     <a href="/aulas">Aulas</a>
     <a href="/exercicios">Exercícios</a>
     <a href="/duvidas">Dúvidas</a>
 </nav>
 
 <div class="container">
-    <h2>Sobre o Projeto</h2>
+    <h2><i class="fas fa-info-circle"></i> Sobre o Projeto</h2>
     <p>
         O Codelingo é uma plataforma educacional desenvolvida no contexto das
         Atividades Extensionistas, com foco na inclusão digital e no ensino
-        introdutório da linguagem Python.
+        introdutório da linguagem Python. Nossa missão é tornar a programação 
+        acessível para todos.
     </p>
 
-    <h2>O que você vai aprender?</h2>
-    <ul>
-        <li>Fundamentos da linguagem Python</li>
-        <li>Raciocínio lógico</li>
-        <li>Resolução de problemas</li>
-        <li>Base para disciplinas futuras de programação</li>
+    <h2 style="margin-top: 40px;"><i class="fas fa-graduation-cap"></i> O que você vai aprender?</h2>
+    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+        <li style="background: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <i class="fab fa-python" style="color: var(--primary);"></i> Fundamentos do Python
+        </li>
+        <li style="background: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <i class="fas fa-brain" style="color: var(--primary);"></i> Raciocínio Lógico
+        </li>
+        <li style="background: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <i class="fas fa-code" style="color: var(--primary);"></i> Resolução de Problemas
+        </li>
+        <li style="background: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            <i class="fas fa-rocket" style="color: var(--primary);"></i> Base para Carreira Tech
+        </li>
     </ul>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <a href="/aulas" class="btn-praticar" style="padding: 15px 40px; font-size: 1.1rem;">
+            Começar Agora <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
 </div>
 
 <footer>
